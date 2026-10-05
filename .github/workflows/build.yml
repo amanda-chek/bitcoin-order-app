@@ -65,5 +65,6 @@ jobs:
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
       - name: Deploy
+        if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           npm run deploy
